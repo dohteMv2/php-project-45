@@ -1,5 +1,6 @@
 {
     "name": "hexlet/code",
+	"bin": ["bin/php-package"],
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
@@ -11,7 +12,5 @@
             "email": "liga-2akk@mail.ru"
         }
     ],
-    "require": {
-        "wp-cli/php-cli-tools": "^0.11.22"
-    }
+    "require": {}
 }
