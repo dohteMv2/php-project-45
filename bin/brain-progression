@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+$i = 0;
+while ($i < 3)
+{
+   $firstTerm = rand(1, 10); // первый член прогрессии
+   $commonDifference = rand(2, 5); // общее различие
+   $length = rand(5, 10); // длина прогрессии
+
+   $progression = [];
+   for ($i = 0; $i < $length; $i++) {
+   $progression[] = $firstTerm + $i * $commonDifference;
+   $result[$i] = $progression;
+   $progRand = rand(0, 10);
+   
+}
+
+print_r($progression);
+}
+
+$question1 = $result1[0];
+$question2 = $result1[1];
+$question3 = $result1[2];
+
+$answer1 = $result[0];
+$answer2 = $result[1];
+$answer3 = $result[2];
+$test = "What number is missing in the progression?";
+
+BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);

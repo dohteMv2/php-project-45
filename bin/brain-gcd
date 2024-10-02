@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+function gcd($a, $b)
+{
+   while ($b != 0) {
+   $temp = $b;
+   $b = $a % $b;
+   $a = $temp;
+}
+return $a;
+}
+$i = 0;
+while ($i < 3)
+{
+   $firstNumber = rand(0, 100);
+   $secondNumber = rand(0, 100);
+   $result2[$i] = gcd($firstNumber, $secondNumber);
+   $result1[$i] = $firstNumber . " " . $secondNumber;
+   $i++; 
+}
+
+$question1 = $result1[0];
+$question2 = $result1[1];
+$question3 = $result1[2];
+
+$answer1 = $result2[0];
+$answer2 = $result2[1];
+$answer3 = $result2[2];
+$test = "Find the greatest common divisor of given numbers";
+
+BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);
+
+

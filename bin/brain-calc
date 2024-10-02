@@ -1,0 +1,50 @@
+#!/usr/bin/env php
+<?php
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+$operator = ['-', '+', '*'];
+
+$i = 0;
+while ($i < 3)
+{
+   $operator1 = rand(0, 99);
+   $operator2 = rand(0, 99);
+   $operator3 = $operator[rand(0, 2)];
+   if($operator3 == '-')
+{
+   $result1[$i] = $operator1 . $operator3 . $operator2;
+   $result[$i] = $operator1 - $operator2;
+}
+else if($operator3 == '+')
+{
+   $result1[$i] = $operator1 . $operator3 . $operator2;
+   $result[$i] = $operator1 + $operator2;
+}
+else if($operator3 == '*')
+{
+   $result1[$i] = $operator1 . $operator3 . $operator2;
+   $result[$i] = $operator1 * $operator2;
+}
+
+
+   $i++;
+}
+
+
+
+$question1 = $result1[0];
+$question2 = $result1[1];
+$question3 = $result1[2];
+
+$answer1 = $result[0];
+$answer2 = $result[1];
+$answer3 = $result[2];
+$test = "What is the result of the expression?";
+BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);
