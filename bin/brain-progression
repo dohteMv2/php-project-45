@@ -16,23 +16,34 @@ while ($i < 3)
    $length = rand(5, 10); // длина прогрессии
 
    $progression = [];
-   for ($i = 0; $i < $length; $i++) {
+   for ($i = 0; $i < $length; $i++) 
+   {
    $progression[] = $firstTerm + $i * $commonDifference;
    $result[$i] = $progression;
    $progRand = rand(0, 10);
    
+   }
 }
+$randItem1 = rand(0, count($progression));
+$randItem2 = rand(0, count($progression));
+$randItem3 = rand(0, count($progression));
 
-print_r($progression);
-}
+$randQuestion1 = $progression; 
+$randQuestion2 = $progression;
+$randQuestion3 = $progression;
 
-$question1 = $result1[0];
-$question2 = $result1[1];
-$question3 = $result1[2];
+$randQuestion1[$randItem1] = '..';
+$randQuestion2[$randItem2] = '..';
+$randQuestion3[$randItem3] = '..';
 
-$answer1 = $result[0];
-$answer2 = $result[1];
-$answer3 = $result[2];
+$question1 = implode(' ', $randQuestion1);
+$question2 = implode(' ', $randQuestion2);
+$question3 = implode(' ', $randQuestion3);
+
+$answer1 = $progression[$randItem1];
+$answer2 = $progression[$randItem2];
+$answer3 = $progression[$randItem3];
+
 $test = "What number is missing in the progression?";
 
 BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);

@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+function isPrime($num) {
+if ($num <= 1) {
+return false;
+}
+for ($i = 2; $i <= sqrt($num); $i++) {
+if ($num % $i == 0) {
+return false;
+
+}
+}
+return true;
+}
+$question = [];
+$answer = [];
+$i = 0;
+while ($i <3)
+{
+   $randPrime = rand(0, 99);
+   $question[$i] = $randPrime;
+   if (isPrime($question[$i]))
+   {
+      $answer[$i] = "yes";
+   }
+   else   
+   {
+   $answer[$i] = "no";
+   }
+   $i++;
+}
+
+
+
+$question1 = $question[0];
+$question2 = $question[1];
+$question3 = $question[2];
+
+$answer1 = $answer[0];
+$answer2 = $answer[1];
+$answer3 = $answer[2];
+
+print_r($answer[0]);
+
+$test = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+
+
+
+
+
+
+BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);
