@@ -5,7 +5,7 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function engine(string $question1, string $answer1, string $question2, string $answer2, string $question3, string $answer3, string $test)
+function engine(string $question1, string $answer1, string $question2, string $answer2, string $question3, string $answer3, $test)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
