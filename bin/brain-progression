@@ -8,41 +8,47 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+$question1 = '';
+$question2 = '';
+$question3 = '';
+$answer1 = '';
+$answer2 = '';
+$answer3 = '';
+
 $i = 0;
-while ($i < 3)
-{
-    $firstTerm = rand(1, 10); // первый член прогрессии
-    $commonDifference = rand(2, 5); // общее различие
-    $length = rand(5, 10); // длина прогрессии
+while ($i < 3) {
+ $firstTerm = rand(1, 10); // первый член прогрессии
+ $commonDifference = rand(2, 5); // общее различие
+ $length = rand(5, 10); // длина прогрессии
 
-    $progression = [];
-    for ($j = 0; $j < $length; $j++)
-    {
-        $progression[] = $firstTerm + $j * $commonDifference;
-    }
-    
-    $result[$i] = $progression;
-    $i++;
+ $progression = [];
+ for ($j = 0; $j < $length; $j++) {
+ $progression[] = $firstTerm + $j * $commonDifference;
+ }
+
+ $randItem = rand(0, count($progression) - 1);
+ $missingNumber = $progression[$randItem];
+ 
+ $progression[$randItem] = '..';
+ $question = implode(' ', $progression);
+
+ switch ($i) {
+ case 0:
+ $question1 = $question;
+ $answer1 = (string)$missingNumber;
+ break;
+ case 1:
+ $question2 = $question;
+ $answer2 = (string)$missingNumber;
+ break;
+ case 2:
+ $question3 = $question;
+ $answer3 = (string)$missingNumber;
+ break;
+ }
+
+ $i++;
 }
-$randItem1 = rand(0, count($progression));
-$randItem2 = rand(0, count($progression));
-$randItem3 = rand(0, count($progression));
-
-$randQuestion1 = $progression; 
-$randQuestion2 = $progression;
-$randQuestion3 = $progression;
-
-$randQuestion1[$randItem1] = '..';
-$randQuestion2[$randItem2] = '..';
-$randQuestion3[$randItem3] = '..';
-
-$question1 = implode(' ', $randQuestion1);
-$question2 = implode(' ', $randQuestion2);
-$question3 = implode(' ', $randQuestion3);
-
-$answer1 = $progression[$randItem1];
-$answer2 = $progression[$randItem2];
-$answer3 = $progression[$randItem3];
 
 $test = "What number is missing in the progression?";
 
