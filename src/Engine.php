@@ -12,7 +12,7 @@ function engine($question1, $answer1, $question2, $answer2, $question3, $answer3
     line("Hello, %s!", $name);
     line($test);
 
-    line("Question: %s!", $question1);
+    line("Question: %s", $question1);
     $answer = prompt('Your answer: ');
     if ($answer == $answer1) {
         line("Correct!");
@@ -21,7 +21,7 @@ function engine($question1, $answer1, $question2, $answer2, $question3, $answer3
 Let's try again, %s!", $answer, $name);
     }
 
-    line("Question: %s!", $question2);
+    line("Question: %s", $question2);
     $answer = prompt('Your answer: ');
     if ($answer == $answer2) {
         line("Correct!");
@@ -30,7 +30,7 @@ Let's try again, %s!", $answer, $name);
 Let's try again, %s!", $answer, $name);
     }
 
-    line("Question: %s!", $question3);
+    line("Question: %s", $question3);
     $answer = prompt('Your answer: ');
     if ($answer == $answer3) {
         line("Correct!");
