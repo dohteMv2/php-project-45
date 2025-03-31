@@ -33,7 +33,7 @@ $question3 = $result1[2];
 $answer1 = $result2[0];
 $answer2 = $result2[1];
 $answer3 = $result2[2];
-$test = "Find the greatest common divisor of given numbers";
+$test = "Find the greatest common divisor of given numbers.";
 
 BrainGames\Engine\engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test);
 
