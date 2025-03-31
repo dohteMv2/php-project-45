@@ -6,7 +6,6 @@ use function cli\line;
 use function cli\prompt;
 
 function engine($question1, $answer1, $question2, $answer2, $question3, $answer3, $test)
-
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
